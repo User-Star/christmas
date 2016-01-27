@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>圣诞主题</title>
+    <link rel='stylesheet' href='./css/main.css' />
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/jQuery-Transit.js"></script>
+    <script type="text/javascript" src="./js/page-a.js"></script>
+    <script type="text/javascript" src="./js/page-b.js"></script>
+    <script type="text/javascript" src="./js/page-c.js"></script>
+    <script type="text/javascript" src="./js/christmas.js"></script>
+</head>
+
+<body>
+<section class="container">
+    <!-- 第一幅画面 -->
+    <section class="page-a bg-adaptive">
+        <!-- 月亮 -->
+        <figure class="moon"></figure>
+        <!-- 圣诞树 -->
+        <figure class="tree"></figure>
+        <!-- 云 -->
+        <figure class="cloudy"></figure>
+        <!--男孩-->
+        <div class="chs-boy chs-boy-deer"></div>
+        <!-- 窗户 -->
+        <div class="window wood">
+            <div class="window-bg"></div>
+            <div class="window-content">
+                <div class="window-left"></div>
+                <div class="window-right"></div>
+            </div>
+        </div>
+    </section>
+    <!-- 第二幅画面 -->
+    <section class="page-b bg-adaptive">
+    </section>
+    <!-- 第三幅画面 -->
+    <section class="page-c bg-adaptive">
+    </section>
+</section>
+<!--选择页面：
+<select id="choose">
+    <option value="page-a" selected="">1</option>
+    <option value="page-b">2</option>
+    <option value="page-c">3</option>
+</select>-->
+</body>
+<script type="text/javascript">
+
+    var doc = document;
+    /**
+     * 针对content中的html文本框
+     * 增加rem的修改
+     * @param  {[type]} doc [description]
+     * @param  {[type]} win [description]
+     * @return {[type]}     [description]
+     */
+
+        //rem设置
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    //宽与高度
+                    document.body.style.height = clientWidth * (900 / 1440) + "px"
+                };
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+
+
+
+    /**
+     * 下拉选择页面
+     * @type {[type]}
+     */
+   /* var page = document.querySelector("#page");
+
+
+    //层级
+    var index = 10;
+    //切换切换
+    page.addEventListener("change",function(e){
+        //页面元素
+        var pageElement = document.querySelector("." + e.target.value)
+        pageElement.style.zIndex = ++index;
+    },false)*/
+
+</script>
+
+</html>
